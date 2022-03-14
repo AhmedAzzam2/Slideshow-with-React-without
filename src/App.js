@@ -9,7 +9,6 @@ const img = ["https://cdn.pixabay.com/photo/2020/02/13/06/49/seascape-4844697_96
   "https://cdn.pixabay.com/photo/2021/12/19/12/27/road-6881040_960_720.jpg",
   "https://cdn.pixabay.com/photo/2018/11/07/15/58/dashboard-3800651_960_720.jpg"];
 
-const colors = ["#0088FE", "#00C49F", "#FFBB28"];
 const delay = 2500;
 
 function App() {
@@ -27,7 +26,7 @@ function App() {
     timeoutRef.current = setTimeout(
       () =>
         setIndex((prevIndex) =>
-          prevIndex === colors.length - 1 ? 0 : prevIndex + 1
+          prevIndex === img.length - 1 ? 0 : prevIndex + 1
         ),
       delay
     );
@@ -39,59 +38,59 @@ function App() {
 
   return (
     <>
-    <h1> slideshow with react without library </h1>
-    <div className="slideshow">
-      <div
-        className="slideshowSlider "
-        style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-      >
-        {img.map((backgroundColor, index) => (
+      <h1> slideshow with react without library </h1>
+      <div className="slideshow">
+        <div 
+          className="slideshowSlider "
+          style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+        >
+          {img.map((backgroundColor, index) => (
 
-          <div className="card">
-            <div className="img">
-              <img src={backgroundColor} className="slide" alt="logo" />
+            <div className="card">
+              <div className="img">
+                <img src={backgroundColor} className="slide" alt="logo" />
 
+              </div>
+              <div className="info">
+                add text for test only
+              </div>
             </div>
-            <div className="info">
-              add text for test only
-            </div>
-          </div>
 
 
-        ))}
-      </div>
-      <div className="slideshowArrow">
+          ))}
+        </div>
+        <div className="slideshowArrow">
 
-        <span className="ArrowL"
-          onClick={() => {
-            setIndex((prevIndex) =>
-              prevIndex === colors.length - 1 ? 0 : prevIndex + 1
-            )
-          }}
-        > 	&#8592; </span>
-        <span className="ArrowR"
-          onClick={() => {
-            setIndex((prevIndex) =>
-              prevIndex === colors.length - 1 ? 0 : prevIndex + 1
-            )
-          }}
-        > 	&#8594; </span>
-
-
-      </div>
-
-      <div className="slideshowDots">
-        {colors.map((_, idx) => (
-          <div
-            key={idx}
-            className={`slideshowDot${index === idx ? " active" : ""}`}
+          <span className="ArrowL"
             onClick={() => {
-              setIndex(idx);
+              setIndex((prevIndex) =>
+                prevIndex === img.length - 1 ? 0 : prevIndex + 1
+              )
             }}
-          ></div>
-        ))}
+          > 	&#8592; </span>
+          <span className="ArrowR"
+            onClick={() => {
+              setIndex((prevIndex) =>
+                prevIndex === img.length - 1 ? 0 : prevIndex + 1
+              )
+            }}
+          > 	&#8594; </span>
+
+
+        </div>
+
+        <div className="slideshowDots">
+          {img.map((_, idx) => (
+            <div
+              key={idx}
+              className={`slideshowDot${index === idx ? " active" : ""}`}
+              onClick={() => {
+                setIndex(idx);
+              }}
+            ></div>
+          ))}
+        </div>
       </div>
-    </div>
     </>
   );
 }
