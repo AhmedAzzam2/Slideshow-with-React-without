@@ -1,13 +1,116 @@
+* {
+  box-sizing: border-box;
+  transition: all .5s ease-in-out;
+}
+body{
+background:darkgoldenrod;
+}
+h1 {
+  text-align: center;
+  color: wheat;
+}
+.card {
+display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 22px;
+}
+
+
+.card .img { 
+  z-index: 1;
+}
+
+.card img {
+  width: 100%;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 21px;
+  border:11px white solid;
+}
+
+.card .info {
+  position: absolute;
+  z-index: 2;
+  bottom: 0; 
+  backdrop-filter: blur(15px);
+  width: 100%; 
+  text-align: center;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.card:hover .info {
+font-size: 21px;
+  bottom: 0; 
+  color: #fff;
+  transform: scale(1.5);
+}
+
+.pin {
+  border-radius: 40px;
+  font-size: 30px;
+  transform: rotate('122px');
+  backdrop-filter: blur(25px);
+  color: #fff;
+  z-index: 3;
+  position: absolute;
+}
 /* Slideshow */
 
 .slideshow {
-  margin: 0 auto;
-  overflow: hidden;
-  max-width: 500px;
+margin: 0 auto;
+overflow: hidden;
+max-width: 500px;
+}
+
+.slideshowSlider {
+white-space: nowrap;
+transition: ease 1000ms;
 }
 
 .slide {
-  height: 400px;
-  width: 100%;
-  border-radius: 40px;
+display: inline-block;
+
+height: 400px;
+width: 100%;
+border-radius: 40px;
 }
+
+/* Buttons */
+
+.slideshowDots {
+text-align: center;
+}
+
+.slideshowDot {
+display: inline-block;
+height: 20px;
+width: 20px;
+border-radius: 50%;
+
+cursor: pointer;
+margin: 15px 7px 0px;
+
+background-color: #c4c4c4;
+}
+
+.slideshowDot.active {
+background-color: #6a0dad;
+}
+.slideshowArrow {
+font-size: 21px;
+display:flex;
+justify-content: space-around;
+}
+
+.ArrowL, .ArrowR {  
+position: relative;
+top: -221px;
+-webkit-backdrop-filter: blur(10px);
+backdrop-filter: blur(10px);
+color: aqua;
+font-size: 27px;
+border-radius: 11px;
+}
+
